@@ -1,3 +1,15 @@
+# swp files
+*.swp
+
+assign2
+client(1).py
+file.txt
+wahu.txt
+
+# Scapy folder
+scapy
+scapy/
+
 # Prerequisites
 *.d
 
