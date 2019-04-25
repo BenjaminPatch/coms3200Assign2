@@ -1,11 +1,15 @@
 #include "serverSetup.h"
 
-void serverSetup(int* udpSock, struct sockaddr_in* toServerAddr) {
+void serverSetup(int* udpSock, struct sockaddr_in* toServerAddr,
+        struct ServerData* serverData) {
     struct sockaddr_in serverAddr = *toServerAddr;
+    serverData->serverAddr = toServerAddr;
+
     if ((*udpSock = socket(AF_INET, SOCK_DGRAM, 0)) == -1) {
         // todo
         fprintf(stderr, "sock\n");
     }
+    serverData->udpSock = udpSock;
 
     memset((char*)&serverAddr, 0, sizeof(serverAddr));
     

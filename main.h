@@ -9,5 +9,6 @@
 
 #include "serverSetup.h"
 #include "waitAndProcess.h"
+#include "serverData.h"
 
 #endif

@@ -5,6 +5,7 @@ assign2
 client(1).py
 file.txt
 wahu.txt
+*.py
 
 # Scapy folder
 scapy

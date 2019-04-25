@@ -7,6 +7,9 @@
 #include <arpa/inet.h>
 #include <stdlib.h>
 
-void serverSetup(int* udpSock, struct sockaddr_in* toServerAddr);
+#include "serverData.h"
+
+void serverSetup(int* udpSock, struct sockaddr_in* toServerAddr,
+        struct ServerData* ServerData);
 
 #endif
