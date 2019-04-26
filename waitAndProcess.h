@@ -6,6 +6,9 @@
 #include <string.h>
 #include <arpa/inet.h>
 #include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+#include <unistd.h>
 
 #include "serverData.h"
 
@@ -27,7 +30,7 @@ struct PacketData {
     uint8_t ackNum2;
     uint8_t flags;
     uint8_t reserved;
-    char payload[1466];
+    char payload[MAX_PAY];
 };
 
 struct OutPack {
@@ -35,14 +38,18 @@ struct OutPack {
     uint16_t ackNum;
     uint8_t flags;
     uint8_t reserved;
-    char payload[1466];
+    char payload[MAX_PAY];
 };
 
 void waitAndProcess(int* udpSock, struct ServerData* serverData);
 
-void processGet(struct PacketData* packData, int seqNum, int ackNum,
-        struct ServerData* serverData);
+void processGet(struct PacketData* packData, struct ServerData* serverData);
+
+void closeConnection(struct ServerData* serverData);
+
+void setSocketTimeout(int* udpSock);
 
 
+char* constructPayload(FILE* fileToTransmit);
 
 #endif

@@ -28,6 +28,7 @@ void serverSetup(int* udpSock, struct sockaddr_in* toServerAddr,
                &size)  == -1) {
         perror("getsockname");
     } else {
-        printf("port number %d\n", ntohs(serverAddr.sin_port));
+        printf("%d\n", ntohs(serverAddr.sin_port));
+        fflush(stdout);
     }
 }

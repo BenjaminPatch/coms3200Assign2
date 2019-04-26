@@ -8,6 +8,8 @@ int main(int argc, char** argv) {
     struct sockaddr_in serverAddr, clientAddr;
     
     serverData->clientAddr = &clientAddr;
+    serverData->seqNum = (int*)malloc(sizeof(int));
+    *(serverData->seqNum) = 1;
 
     serverSetup(&udpSock, &serverAddr, serverData);
     waitAndProcess(&udpSock, serverData);
